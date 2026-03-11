@@ -3,4 +3,4 @@ import numpy as np
 impport matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    pass:
+    pass
