@@ -1,8 +1,30 @@
 import sys
 from numba import jit
-import multiprocessing as mp
+import numpy as np
 from os.path import join
-from Optimized import load_data, jacobi, summary_stats
+from Optimized import load_data, summary_stats
+
+@jit(nopython=True)
+def jacobi(u, interior_mask, max_iter, atol=1e-6):
+    u_old = np.copy(u)
+    u_new = np.copy(u)
+    rows, cols = u.shape
+    
+    for i in range(max_iter):
+        delta = 0.0
+        for r in range(1, rows - 1):
+            for c in range(1, cols - 1):
+                if interior_mask[r-1, c-1]:
+                    val = 0.25 * (u_old[r, c-1] + u_old[r, c+1] + u_old[r-1, c] + u_old[r+1, c])
+                    u_new[r, c] = val
+                    diff = abs(u_old[r, c] - val)
+                    if diff > delta:
+                        delta = diff
+                        
+        u_old[:] = u_new[:]    
+        if delta < atol:
+            break         
+    return u_new
 
 @jit(nopython=True)
 def do_jacobi(args):
