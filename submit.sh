@@ -14,6 +14,4 @@ source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate 02613_2026
 
 # Run Python script
-#time python static_scheduling.py 10
-#time python dynamic_scheduling.py 10
-#time python numba_JIT_cpu.py 10
+python Optimized.py 1
