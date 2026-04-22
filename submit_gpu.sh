@@ -14,3 +14,7 @@ source /dtu/projects/02613_2025/conda/conda_init.sh
 conda activate 02613_2026
 
 # Run Python script
+#time numba_CUDA_gpu.py 10
+#nsys profile -o cupy_analysis python CuPy.py 10
+#nsys stats cupy_analysis.nsys-rep
+time python CuPy_optimized.py 10

@@ -2,7 +2,7 @@ import sys
 from numba import jit
 import numpy as np
 from os.path import join
-from Optimized import load_data, summary_stats
+from optimized_code import load_data, summary_stats
 
 @jit(nopython=True)
 def jacobi(u, interior_mask, max_iter, atol=1e-6):

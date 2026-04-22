@@ -1,7 +1,7 @@
 from os.path import join
 import sys
 import os
-from Optimized import load_data, jacobi, summary_stats
+from optimized_code import load_data, jacobi, summary_stats
 import numpy as np
 import matplotlib.pyplot as plt
 from numba import cuda

@@ -1,7 +1,7 @@
 import sys
 import multiprocessing as mp
 from os.path import join
-from Optimized import load_data, jacobi, summary_stats
+from optimized_code import load_data, jacobi, summary_stats
 
 def do_jacobi(args):
     # Unpack arguments

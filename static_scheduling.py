@@ -2,7 +2,7 @@ from concurrent.futures import ProcessPoolExecutor
 from os.path import join
 import sys
 
-from Optimized import load_data, jacobi, summary_stats
+from optimized_code import load_data, jacobi, summary_stats
 
 
 def run_chunk(args):
